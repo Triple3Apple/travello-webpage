@@ -8,3 +8,196 @@
 html {
   font-size: 62.5%;
 }
+
+body {
+  /* 
+  Wny is sans-serif there? Becuase if Poppins does not load, 
+  sans-serif will be used 
+  */
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-size: 2.6rem;
+}
+
+li,
+button,
+label,
+input,
+p {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 4.8rem;
+}
+
+h3 {
+  font-size: 3rem;
+  font-weight: normal;
+}
+
+h4,
+h5 {
+  font-size: 2.5rem;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+button {
+  padding: 2rem 5rem;
+  background: rgb(33, 135, 194);
+  border: none;
+  color: white;
+  font-size: 2.75rem;
+  cursor: pointer;
+}
+
+/* Nav Section with hero */
+
+.main-head {
+  background: #131c27;
+  color: white;
+}
+
+nav {
+  display: flex;
+
+  /*
+  width: 90%  <-- This makes the width of the nav to 90% of the screen size 
+  
+  margin: auto   <-- This will make it so the nav is centered 
+  (also since width of nav is 90%, margin: auto will make it so there is a 
+  5% padding on the left and right)
+  */
+  width: 90%;
+  margin: auto;
+
+  min-height: 10vh;
+
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-links {
+  display: flex;
+
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.nav-links ul {
+  display: flex;
+
+  flex: 1 1 5rem;
+
+  justify-content: space-around;
+  align-items: center;
+  padding: 0rem 5rem;
+
+  list-style: none;
+}
+
+/*
+nav ul {
+  display: flex;
+
+  /* flex-grow flex-shrink flex-basis*/
+/*
+  flex: 1 1 30rem;
+
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+*/
+
+#logo {
+  flex: 2 1 30rem;
+  font-family: "Courgette", cursive;
+  font-size: 3.5rem;
+
+  padding-right: 10vw;
+
+  /* Text Gradient */
+  background: -webkit-linear-gradient(
+    left,
+    rgb(254, 255, 206),
+    rgb(90, 175, 255)
+  );
+
+  display: inline-block;
+  -webkit-background-clip: text;
+  background-clip: text; /* For compatability */
+  -webkit-text-fill-color: transparent;
+
+  /* 
+  Background size is set in order to make gradient constant 
+  with variable browser widths 
+  */
+  background-size: 15rem;
+  background-repeat: no-repeat;
+}
+
+.hero {
+  min-height: 90vh;
+  /* Linear Gradient applied to Background */
+  background: linear-gradient(rgba(0, 0, 0, 0.424), transparent),
+    url("./img/landing-page.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h3 {
+  padding: 5rem;
+}
+
+/* NOTE: put the biggest max-size of a query on the top!!!! */
+@media screen and (max-width: 1100px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #logo {
+    padding: 0rem;
+    margin: 0;
+    flex: 0 0 5rem;
+  }
+
+  .nav-links {
+    flex-direction: row;
+  }
+
+  .nav-links ul {
+    padding: 2rem 3rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .nav-links {
+    flex-direction: column;
+  }
+
+  .nav-links ul {
+    padding: 1rem 0rem;
+    flex-basis: 0rem;
+  }
+
+  #logo {
+    margin: 2rem;
+    flex: 0 0 1rem;
+  }
+}
