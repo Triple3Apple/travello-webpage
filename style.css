@@ -146,7 +146,7 @@ nav ul {
 .hero {
   min-height: 90vh;
   /* Linear Gradient applied to Background */
-  background: linear-gradient(rgba(0, 0, 0, 0.424), transparent),
+  background: linear-gradient(rgba(0, 0, 0, 0.5), transparent),
     url("./img/landing-page.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -159,8 +159,13 @@ nav ul {
   text-align: center;
 }
 
+.hero h2 {
+  font-size: calc(10px + 3.75vw);
+}
+
 .hero h3 {
   padding: 5rem;
+  font-size: calc(7px + 2vw);
 }
 
 /* NOTE: put the biggest max-size of a query on the top!!!! */
@@ -173,7 +178,7 @@ nav ul {
 
   #logo {
     padding: 0rem;
-    margin: 0;
+    margin: 2rem 0rem 0rem 0rem;
     flex: 0 0 5rem;
   }
 
@@ -192,12 +197,20 @@ nav ul {
   }
 
   .nav-links ul {
-    padding: 1rem 0rem;
+    padding: 0.75rem 0rem;
     flex-basis: 0rem;
+    font-size: 1rem;
+  }
+
+  .nav-links ul a {
+    font-size: 80%;
   }
 
   #logo {
-    margin: 2rem;
-    flex: 0 0 1rem;
+    margin: 2rem 0rem 0.25rem 0rem;
+    flex: 0 0 0.5rem;
+    font-size: 4.5rem;
+
+    background-size: 16rem;
   }
 }
