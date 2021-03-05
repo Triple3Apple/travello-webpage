@@ -50,11 +50,39 @@ a {
 
 button {
   padding: 2rem 5rem;
-  background: rgb(33, 135, 194);
+  background: rgb(38, 120, 153);
   border: none;
   color: white;
   font-size: 2.75rem;
   cursor: pointer;
+
+  /* 
+    Used for Transitioning
+    transition: background 0.25s ease-in-out;
+    background <-- we are transitioning the background
+    0.25s <-- transition time
+    ease-in-out <-- transition curve
+  */
+  transition: background 0.25s ease-in-out;
+
+  /*
+  animation: cloudAnimation 2s infinite alternate 5s;
+
+    animation: allow to choose specific animtion created via keyframes.
+    cloudAnimation: name of keyframe animation.
+    2s: time of animation.
+    infinite: loops animation infinitly.
+    alternate: animation plays forward then in reverse once it reaches 
+               the end.
+    5s: alternate time.
+
+    replace "infinite" with "forward": plays animation but stays at 
+      last animation, does not reset.
+  */
+}
+
+button:hover {
+  background: rgb(48, 95, 122);
 }
 
 /* Nav Section with hero */
@@ -185,6 +213,9 @@ nav ul {
   position: relative;
 
   z-index: -1;
+
+  /* Hides all content that leaves the flex-box (section) */
+  overflow: hidden;
 }
 
 .locations-head {
@@ -211,16 +242,26 @@ nav ul {
   */
   position: absolute;
   /* NOTE: since #locations's position is set to relative, we can say top: 0% */
-  top: 0%;
-  right: 0%;
+  top: -10%;
+  right: -5%;
 }
 
 .moving-cloud-1 {
   z-index: 1;
+
+  background-clip: image;
+
+  animation: cloudAnimation1 30s infinite alternate
+    cubic-bezier(0.37, 0, 0.63, 1);
+  /* cubic-bezier(0.37, 0, 0.63, 1) */
 }
+
 .moving-cloud-2 {
   top: 10%;
   right: -5%;
+
+  animation: cloudAnimation2 10s infinite alternate
+    cubic-bezier(0.37, 0, 0.63, 1);
 
   /* 
   z-index: -1 makes it so it goes behind other images! 
@@ -229,7 +270,53 @@ nav ul {
   z-index: -2;
 
   /* Image Opacity */
-  opacity: 0.5;
+  opacity: 0.4;
+}
+
+/*
+  For animating the clouds, 0% is the start, 100% is the end
+*/
+
+@keyframes cloudAnimation2 {
+  /*
+  0% {
+    transform: translate(10%, -5%);
+  }
+  25% {
+    transform: translate(5%, -10%);
+  }
+  50% {
+    transform: translate(0%, -5%);
+  }
+  75% {
+    transform: translate(5%, 0%);
+  }
+  100% {
+    transform: translate(10%, -5%);
+  }
+  */
+
+  /* Used for simple animtion that has only beginning and end */
+
+  from {
+    transform: translateX(-7%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+/* 
+  Orbiting animation
+  Source: https://www.useragentman.com/blog/2013/03/03/animating-circular-paths-using-css3-transitions/
+ */
+@keyframes cloudAnimation1 {
+  from {
+    transform: rotate(0deg) translateX(3rem) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(3rem) rotate(-360deg);
+  }
 }
 
 /* Media Query */
