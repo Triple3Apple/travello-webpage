@@ -168,6 +168,71 @@ nav ul {
   font-size: calc(7px + 2vw);
 }
 
+/* Locations Section */
+
+#locations {
+  min-height: 100vh;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.5), transparent),
+    url("img/new-york-page.png");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+
+  align-items: center;
+  position: relative;
+
+  z-index: -1;
+}
+
+.locations-head {
+  width: 90%;
+  /* 
+  margin: auto  <-- centers it while also creating 
+  a "margin" on the left (due to width: 90%)
+  */
+  margin: auto;
+}
+
+.locations-head h2 {
+  padding: 1rem 0rem;
+}
+
+.locations-head h3 {
+  padding: 4.25rem 0rem;
+}
+
+.cloud {
+  /* 
+  position is absolute to prevent it from being affected by flex box 
+  (prevent from moving other items around) 
+  */
+  position: absolute;
+  /* NOTE: since #locations's position is set to relative, we can say top: 0% */
+  top: 0%;
+  right: 0%;
+}
+
+.moving-cloud-1 {
+  z-index: 1;
+}
+.moving-cloud-2 {
+  top: 10%;
+  right: -5%;
+
+  /* 
+  z-index: -1 makes it so it goes behind other images! 
+  (like layering)
+  */
+  z-index: -2;
+
+  /* Image Opacity */
+  opacity: 0.5;
+}
+
+/* Media Query */
 /* NOTE: put the biggest max-size of a query on the top!!!! */
 @media screen and (max-width: 1100px) {
   nav {
