@@ -53,7 +53,7 @@ button {
   background: rgb(38, 120, 153);
   border: none;
   color: white;
-  font-size: 2.75rem;
+  font-size: calc(6px + 2vw);
   cursor: pointer;
 
   /* 
@@ -192,8 +192,37 @@ nav ul {
 }
 
 .hero h3 {
-  padding: 5rem;
+  padding: 5rem 5rem 3rem 5rem;
   font-size: calc(7px + 2vw);
+}
+
+#contact-us-text {
+  display: inline-block;
+
+  padding-top: 2rem;
+
+  /* Text Gradient */
+  background: -webkit-linear-gradient(
+    left,
+    rgb(254, 255, 206),
+    rgb(90, 175, 255)
+  );
+
+  display: inline-block;
+  -webkit-background-clip: text;
+  background-clip: text; /* For compatability */
+  -webkit-text-fill-color: transparent;
+
+  /* 
+  Background size is set in order to make gradient constant 
+  with variable browser widths 
+  */
+  background-size: 27rem;
+  background-repeat: no-repeat;
+
+  font-weight: bold;
+
+  font-size: calc(11px + 2vw);
 }
 
 /* Locations Section */
@@ -233,6 +262,8 @@ nav ul {
 
 .locations-head h3 {
   padding: 4.25rem 0rem;
+
+  font-size: calc(10px + 1.75vw);
 }
 
 .cloud {
@@ -244,10 +275,12 @@ nav ul {
   /* NOTE: since #locations's position is set to relative, we can say top: 0% */
   top: -10%;
   right: -5%;
+
+  pointer-events: none;
 }
 
 .moving-cloud-1 {
-  z-index: 1;
+  z-index: -1;
 
   background-clip: image;
 
@@ -340,6 +373,39 @@ nav ul {
 
   .nav-links ul {
     padding: 2rem 3rem;
+  }
+
+  .cloud {
+    height: 40rem;
+  }
+
+  .moving-cloud-2 {
+    top: 0%;
+    right: -5%;
+  }
+
+  .locations-head h2 {
+    color: white;
+    background: rgba(19, 28, 39, 0.75);
+    background-clip: paddings-box;
+    padding: 2rem;
+    font-size: calc(14px + 3vw);
+  }
+
+  .locations-head h3 {
+    color: white;
+    background: rgba(19, 28, 39, 0.75);
+    background-clip: paddings-box;
+    padding: 2rem;
+  }
+
+  @keyframes cloudAnimation2 {
+    from {
+      transform: translateX(10%);
+    }
+    to {
+      transform: translateX(5%);
+    }
   }
 }
 
